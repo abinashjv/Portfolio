@@ -1,0 +1,151 @@
+<html lang="en"></html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+      <link rel="stylesheet" href="style.css" />
+    <title>my portfolio</title>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <nav>
+        <ul class="header-nav">
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#projects">PROJECTS</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+          <li> <button id="toggleTheme">mode</button></li>
+        </ul>
+    </nav>
+   
+  </header>
+    <i class="fa-solid fa-bars" id="MenuBtn"></i>
+    <section class="section" id="home">
+      <div class="section__container">
+        <div class="content">
+          <h4 class="subtitle">Hello, I am</h4>
+          <h1 class="title">Abinash</h1>
+          <p class="title__p">
+            Welcome to my web developer portfolio! I'm ABINASH,
+            "It is the process of planning, designing and implementing the website."
+          </p>
+          <div class="social-media">
+            <a href="http://web.whatsapp.com/"><i class="fa-brands fa-square-whatsapp"></i></a>
+            <a href="https://www.instagram.com/YourProfile"><i class="fa-brands fa-square-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/YourProfile"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+        <div class="image">
+          <img src="a.jpeg" alt="profile" />
+        </div>
+      </div>
+    </section>
+    
+    <section class="about" id="about">
+            <div class="about__content">
+                <h2 class="about__title">About Me</h2>
+                <p class="about__description">
+                    I am Abinash , a passionate front-end web developer based in India. 
+                    I specialize in creating clean and responsive websites using modern 
+                    technologies like HTML, CSS, JavaScript, and React. I aim to build 
+                    functional and visually appealing websites that provide a seamless user 
+                    experience.
+                </p>
+                <a href="resume.htm" download="Abinash_CV" class="download-btn">Download CV</a>
+            </div>
+            </section>
+            <section class="projects" id="projects">
+              <h2 class="projects__title">My Projects</h2>
+              <div class="projects__container">
+                  <div class="project__card">
+                      <img src="project.jpg" alt="Project 1">
+                      <div class="project__content">
+                          <h3>Visitors and Gate Pass System</h3>
+                          <p>A visitor gate pass system is a software program that helps manage visitor access to a building by printing visitor ID badges and tracking visitor information.</p>
+                          <a href="#" class="project__link">View Project</a>
+                      </div>
+                  </div>
+                  <div class="project__card">
+                      <img src="project2.jpg" alt="Project 2">
+                      <div class="project__content">
+                          <h3>Library Fine System</h3>
+                          <p>A library fine system tracks overdue books and charges fees based on the delay period. Patrons are notified of outstanding fines, which must be cleared before borrowing more items. The system also supports payment options and fine appeals.</p>
+                          <a href="#" class="project__link">View Project</a>
+                      </div>
+                  </div>
+              </div>
+          </section>
+          <section class="contact" id="contact">
+            <center><h2 style="color: rgb(6, 148, 101);">Contact Me</h2></center>
+            <div class="contact-container">
+              <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Location: demo address,TamilNadu,India</p>
+                <p><i class="fas fa-envelope"></i> Email: <a href="jvabinash@gmail.com">jvabinash@gmail.com</a></p>
+                <p><i class="fas fa-phone-alt"></i> Phone: +91 9345546184</p>
+              </div>
+              <form class="contact-form" id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required placeholder="Your Name">
+          
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Your Email">
+          
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required placeholder="Your Message"></textarea>
+          
+                <button type="submit">Send Message</button>
+              </form>
+            </div>
+          </section>
+      <script>
+
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+  if (name === "" || email === "" || message === "") {
+    alert("All fields are required.");
+    return;
+  }
+  const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  if (!email.match(emailPattern)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+  alert("Thank you , Your message has been sent.");
+});
+
+let MenuBtn = document.getElementById('MenuBtn');
+MenuBtn.addEventListener('click', function() {
+  document.querySelector('body').classList.toggle('mobile-nav-active');
+  this.classList.toggle('fa-xmark');
+});
+
+const toggleButton = document.getElementById('toggleTheme');
+const body = document.body;
+toggleButton.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
+  if (body.classList.contains('dark-mode')) {
+    localStorage.setItem('theme', 'dark');
+  } else {
+    localStorage.setItem('theme', 'light');
+  }
+});
+
+// Ensure the theme is correctly applied on page load
+window.onload = () => {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    body.classList.add('dark-mode');
+  }
+};
+</script>
+  </body>
+</html>
